@@ -17,8 +17,7 @@
 @import "custom_bootstrap";
 @import "devise_form";
 @import "footer";
-@import "bootstrap.min.css.scss";
-@import "bootstrap.css";
+@import "bootstrap";
 
 .navbar-default{
     border-color: #292c2f;

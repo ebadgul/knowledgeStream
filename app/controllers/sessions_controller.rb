@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     before_action :authenticate_user, only: :destroy
-    before_action :redirect_logged_in_user
+    before_action :redirect_logged_in_user, except: :destroy
 
   def new
   end
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to their profile page.
       remember user
-      redirect_to user
+      redirect_to user_profile_path(user)
     else
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
