@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     before_action :set_post, only: [:edit, :update, :destroy]
 
     def show
-        @user = User.find(params[:id])
+        @user = User.find(params[:user_id])
     end
 
     def new
