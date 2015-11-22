@@ -1,0 +1,31 @@
+<% if current_user %>
+<li>
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><Dropdown><%= current_user.name %><span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+        	<li>
+                <li><%= link_to 'Edit', edit_user_path(current_user) %></li>
+            </li>
+            <li>
+                <li><%= link_to 'Dashboard', user_profile_path(current_user) %></li>
+            </li>
+            <li>
+                <a href="#">Something else here</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="#">Separated link</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <li><%= link_to('Logout', logout_path, :method => :delete,  :data => {:confirm => 'Are you sure?'} ) %></li>
+            </li>
+        </ul>
+    </li>
+</li>
+<li>
+    <%= link_to(image_tag(current_user.avatar.url(:thumb), :class => 'thumb'), edit_user_path(current_user))  %>
+</li>
+<% else %>
+  <li><%= link_to('Login', login_path)  %></li>
+<% end %>

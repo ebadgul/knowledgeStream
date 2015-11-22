@@ -10,4 +10,19 @@ module ApplicationHelper
     end
   end
 
+  def path_active?(path)
+      case
+      when path == root_path && action_name == 'home' && controller_name == 'static_pages'
+          return "active"
+      when path == help_path && action_name == 'help' && controller_name == 'static_pages'
+          return "active"
+      when path == about_path && action_name == 'about' && controller_name == 'static_pages'
+          return "active"
+      else
+          return ""
+
+      end 
+
+  end
+
 end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :users, except: [:new] do
         get 'profile'
     end
-    get 'new', to: 'users#new', as: 'signup'
+    get 'new', to: 'users#new', as: 'signup', path: 'signup'
 
     get 'login' => 'sessions#new'
     post 'login' => 'sessions#create'

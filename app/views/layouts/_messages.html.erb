@@ -1,0 +1,10 @@
+<% flash.each do |key, value| %>
+<div class="bs-component">
+	<div class="alert alert-dismissible alert-<%= key %>">
+		<button data-dismiss="alert" class="close">
+			x
+		</button>
+		<%= value %>
+	</div>
+</div>
+<% end %>

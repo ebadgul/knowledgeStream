@@ -1,0 +1,85 @@
+<div class="jumbotron">
+<h2>Edit <%= @user.name %> </h2>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="well bs-component">
+			<%= form_for(@user, html: { method: :put, class: 'form-horizontal' }) do |f| %>
+
+			<fieldset>
+				<div class="form-group">
+					<div class="actions col-lg-8 col-lg-offset-4">
+						<%= image_tag @user.avatar.url(:medium) %>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-offset-4 col-lg-3">
+						<%= f.file_field :avatar %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :name, :class=> "col-lg-4 control-label" %>
+					<div class="col-lg-3">
+						<%= f.text_field :name, :class=>'form-control', autofocus: true %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :email, :class=> "col-lg-4 control-label" %>
+					<div class="col-lg-3">
+						<%= f.email_field :email, :class=>'form-control' %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :current_password, :class=> "col-lg-4 control-label" %>
+					<div class="col-lg-3">
+						<%= f.password_field :current_password, :class=>'form-control', autocomplete: "off" %>
+						<i>(we need your current password to confirm your changes)</i>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :password, :class=> "col-lg-4 control-label" %>
+					<div class="col-lg-3">
+						<%= f.password_field :password, :class=>'form-control', autocomplete: "off" %>
+						<i>(leave blank if you don't want to change it)</i>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :password_confirmation, :class=> "col-lg-4 control-label" %>
+					<div class="col-lg-3">
+						<%= f.password_field :password_confirmation, :class=>'form-control', autocomplete: "off" %>
+					</div>
+				</div>
+
+				<div class="actions col-lg-8 col-lg-offset-4">
+					<%= f.submit "Update", :class=>'btn btn-primary' %>
+				</div>
+				<% end %>
+			</fieldset>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div class="jumbotron">
+<div class="row">
+	<div class="col-lg-12">
+
+		<div class="well bs-component">
+
+			<h3 class="col-lg-8 col-lg-offset-4">Delete my account</h3>
+
+			<p class="col-lg-8 col-lg-offset-4">
+				Unhappy? <%= button_to "Delete my account", user_path(@user), data: { confirm: "Are you sure?" }, :class=>'btn btn-default col-lg-offset-4', method: :delete %>
+			</p>
+
+			<%= link_to "Back", :back, :class=>"col-lg-8 col-lg-offset-4" %>
+
+		</div>
+	</div>
+</div>
+</div>	
