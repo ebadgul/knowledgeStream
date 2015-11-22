@@ -19,9 +19,6 @@
 @import "footer";
 @import "bootstrap";
 
-.navbar-default{
-    border-color: #292c2f;
-}
 
 .thumb {
   height: 60%;
