@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'about'   => 'static_pages#about'
     get 'contact' => 'static_pages#contact'
 
+    resources :posts
     resources :users, except: [:new] do
         get 'show', to: 'users#show', as: 'profile', path: 'profile'
     end
