@@ -1,6 +1,7 @@
 <div class="border-form-div">
   <h2>Sign up</h2>
   <%= form_for @user do |f| %>
+    <%= render partial: 'shared/error_messages', object: @user, as: 'active_object' %>
     <%= f.text_field :name, :autofocus => true, :placeholder => 'Full Name', :class => 'required' %>
     <%= f.email_field :email, :placeholder => 'Email address' %>
     <%= f.password_field :password, :placeholder => 'Password' %>

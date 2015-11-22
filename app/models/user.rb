@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
     validates :email, presence: true, 
         format: { with: VALID_EMAIL_REGEX },
         uniqueness: { case_sensitive: false }
-    validates :password, presence: true, length: { minimum: 6 }
-    validates :password_confirmation, presence: true                          
+    validates :password, presence: true, length: { minimum: 6 }, allow_blank: true
     has_secure_password # a magi method!!
 
     has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }, :default_url => "/images/:style/default_image.png"
