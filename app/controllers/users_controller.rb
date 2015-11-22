@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :authenticate_user, except: [:new, :create]
     before_action :set_post, only: [:edit, :update, :destroy]
+    before_action :redirect_logged_in_user, only: [:new, :create]
 
     def show
         @user = User.find(params[:user_id])
