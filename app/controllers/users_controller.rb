@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, except: [:new, :create]
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy]
   before_action :redirect_logged_in_user, only: [:new, :create]
+  
   def show
     @user = User.find(params[:user_id])
+    @posts = @user.posts
   end
 
   def new
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       remember @user
       flash[:success] = "Welcome to the shareit App"
-      redirect_to @user
+      redirect_to user_profile_path(@user)
     # Handle a successful save.
     else
       render 'new'
@@ -28,12 +30,19 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(post_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to user_profile_path(@user), notice: 'User was successfully updated.'
     else
       render :edit
     end
 
   end
+
+  def destroy
+    log_out
+    @user.delete
+    redirect_to root_path, notice: 'your account has been deleted'
+  end
+    
 
   def secure_params
     secure_params = params.require(:user).permit(:name, :email, :password, :password_confirmation)
@@ -45,10 +54,10 @@ class UsersController < ApplicationController
   end
   private :post_params
 
-  def set_post
+  def set_user
     @user = User.find(params[:id])
     redirect_to root_path unless @user
   end
-  private :set_post
+  private :set_user
 
 end
