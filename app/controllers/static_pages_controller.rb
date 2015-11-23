@@ -1,7 +1,10 @@
 class StaticPagesController < ApplicationController
   def home
+    # @user = User.find(params[:user_id])
+    @posts = Post.all
+    # @posts = @user.posts
   end
-
+  
 
   def help
   end
@@ -10,7 +13,7 @@ class StaticPagesController < ApplicationController
 
   end
 
-   def contact
+  def contact
   end
- 
+
 end
