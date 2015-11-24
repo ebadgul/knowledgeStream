@@ -1,11 +1,48 @@
+<% provide(:title, "Sign up") %>
+
+<%= form_for @user do |f| %>
+<%= render partial: 'shared/error_messages', object: @user, as: 'active_object' %>
+
 <div class="border-form-div">
-  <h2>Sign up</h2>
-  <%= form_for @user do |f| %>
-    <%= render partial: 'shared/error_messages', object: @user, as: 'active_object' %>
-    <%= f.text_field :name, :autofocus => true, :placeholder => 'Full Name', :class => 'required' %>
-    <%= f.email_field :email, :placeholder => 'Email address' %>
-    <%= f.password_field :password, :placeholder => 'Password' %>
-    <%= f.password_field :password_confirmation, :placeholder => 'Password confirmation' %>
-    <%= f.submit "Sign up",:class=>'btn btn-default' %>
-  <% end %>
+	<form class="form-horizontal">
+		<fieldset>
+			<legend>
+				Sign up now
+			</legend>
+			<div class="form-group">
+
+				<%= f.label :name, class: 'col-lg-4 control-label' %>
+				<div class="col-lg-8">
+					<%= f.text_field :name, :autofocus => true, :placeholder => 'Full Name', :class => 'required' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= f.label :email, class: 'col-lg-4 control-label' %>
+				<div class="col-lg-8">
+					<%= f.email_field :email, :placeholder => 'Email address' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= f.label :password, class: 'col-lg-4 control-label' %>
+				<div class="col-lg-8">
+					<%= f.password_field :password, :placeholder => 'Password'%>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :password_confirmation, class: 'col-lg-4 control-label' %>
+				<div class="col-lg-8">
+					<%= f.password_field :password_confirmation, :placeholder => 'Password confirmation' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10 col-lg-offset-4">
+					<%= f.submit "Sign up",:class=>'btn btn-default' %>
+					<% end%>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
 </div>
+
