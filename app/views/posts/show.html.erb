@@ -22,7 +22,9 @@
   <%= @post.rating %>
   <small><%= @post.created_at %></small>
 </p>
+<% if User == current_user %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', user_profile_path(@post.user) %>
 
 </div>
