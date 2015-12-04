@@ -14,29 +14,30 @@
 ActiveRecord::Schema.define(version: 20151122175759) do
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "title"
-    t.text     "description"
-    t.integer  "rating"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_id",     limit: 4
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.integer  "rating",      limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "password_digest"
-    t.string   "remember_digest"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
+    t.string   "name",                limit: 255
+    t.string   "email",               limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "password_digest",     limit: 255
+    t.string   "remember_digest",     limit: 255
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "posts", "users"
 end

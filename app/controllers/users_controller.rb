@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(secure_params)
     if @user.save
       remember @user
-      flash[:success] = "Welcome to the shareit App"
+      flash[:success] = "Welcome to KnowledgeStream"
       redirect_to user_profile_path(@user)
     # Handle a successful save.
     else
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     if @user.update(post_params)
       redirect_to user_profile_path(@user), notice: 'User was successfully updated.'
     else
-      render :edit
+      render 'edit'
     end
 
   end
