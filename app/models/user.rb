@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
     has_many :posts
+    has_many :comments
 
 
     # Returns the hash digest of a string.
