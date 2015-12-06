@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
-    # @user = User.find(params[:user_id])
     @posts = Post.all
-    # @posts = @user.posts
+    @post = Post.new
+    @post.user = current_user
   end
   
 
