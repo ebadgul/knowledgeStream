@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :posts do
         get 'history', :on => :member
     end
-    resources :comments
+    resources :comments do
+        get 'history', :on => :member
+    end
+
     resources :users, except: [:new] do
         get 'show', to: 'users#show', as: 'profile', path: 'profile'
     end
