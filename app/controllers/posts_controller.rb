@@ -8,7 +8,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @posts = current_user.posts
-    @comment = @post.comments.new
+    @comment = Comment.new
+    @comment.post = @post
+    @comments = @post.comments
   end
 
   # GET /posts/new

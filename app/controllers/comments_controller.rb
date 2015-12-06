@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user
   def show
     @comment = Comment.find(params[:id])
-    @post = @comment.posts.new
+    @post = @comment.post
   end
 
   # GET /posts/new
