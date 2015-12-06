@@ -3,14 +3,12 @@ class PostsController < ApplicationController
   before_action :authenticate_user
   # GET /posts
   # GET /posts.json
-  def index
-    @posts =  current_user.posts
-  end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     @posts = current_user.posts
+    @comment = @post.comments.new
   end
 
   # GET /posts/new

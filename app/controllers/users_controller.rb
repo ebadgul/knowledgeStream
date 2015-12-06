@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user, except: [:new, :create]
   before_action :set_user, only: [:edit, :update, :destroy]
   before_action :redirect_logged_in_user, only: [:new, :create]
-  
   def show
     @user = User.find(params[:user_id])
     @posts = @user.posts
+    @comments = @user.comments
   end
 
   def new
@@ -42,7 +42,6 @@ class UsersController < ApplicationController
     @user.delete
     redirect_to root_path, notice: 'your account has been deleted'
   end
-    
 
   def secure_params
     secure_params = params.require(:user).permit(:name, :email, :password, :password_confirmation)
@@ -52,6 +51,7 @@ class UsersController < ApplicationController
   def post_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
   end
+  
   private :post_params
 
   def set_user

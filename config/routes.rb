@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'contact' => 'static_pages#contact'
 
     resources :posts
+    resources :comments
     resources :users, except: [:new] do
         get 'show', to: 'users#show', as: 'profile', path: 'profile'
     end
