@@ -26,7 +26,11 @@
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>
 <%= link_to 'Back', user_profile_path(@post.user) %>
+
+<%= link_to 'History', history_post_path(@post) %>
 </div>
+
+
 <%= render 'comments/comments'%>
 	<%= render 'comments/form' %>
 	

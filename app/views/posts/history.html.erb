@@ -1,0 +1,22 @@
+<h1>Post History</h1>
+
+<table class ="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% @post.post_histories.each do |post_history| %>
+        <tr>
+        <td><%= @post.user.name %></td>
+        <td><%= post_history.title %></td>
+        <td><%= post_history.description %></td>
+    </tr>
+    <% end %>
+    </tbody>
+
+</table>
