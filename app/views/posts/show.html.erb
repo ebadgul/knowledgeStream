@@ -20,49 +20,17 @@
 	</p>
 
 	<p>
-<<<<<<< HEAD
-<<<<<<< HEAD
-		<strong>Rating:</strong>
-		<%= @post.rating %>
-		<small><%= @post.created_at %></small>
-=======
 		<strong>Date:</strong>
 		<%= @post.rating %>
 		<small><%= @post.created_at.strftime("%d %b. %Y") %></small>
->>>>>>> comment-history
-=======
-		<strong>Date:</strong>
-		<%= @post.rating %>
-		<small><%= @post.created_at.strftime("%d %b. %Y") %></small>
->>>>>>> comment-history
 	</p>
 	<% if User == current_user %>
 	<%= link_to 'Edit', edit_post_path(@post) %> |
 	<% end %>
-<<<<<<< HEAD
-<<<<<<< HEAD
 	<%= link_to 'Back', user_profile_path(@post.user) %>
 </div>
 <div class="container">
 	<%= render 'comments/comments'%>
 	<%= render 'comments/form' %>
 </div>
-=======
-	<%= link_to 'Back', user_profile_path(@post.user) %> |
-
-	<%= link_to 'History', history_post_path(@post) %>
-</div>
-
-<%= render 'comments/comments'%> 
-<%= render 'comments/form' %>
->>>>>>> comment-history
-=======
-	<%= link_to 'Back', user_profile_path(@post.user) %> |
-
-	<%= link_to 'History', history_post_path(@post) %>
-</div>
-
-<%= render 'comments/comments'%> 
-<%= render 'comments/form' %>
->>>>>>> comment-history
 

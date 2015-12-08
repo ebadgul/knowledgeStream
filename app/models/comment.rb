@@ -1,7 +1,9 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
-  has_many :comment_histories
+  has_many :comment_histories, dependent: :destroy
+  validates :comment, presence: true
+
 
   before_save :update_history
 

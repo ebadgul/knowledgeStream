@@ -1,21 +1,5 @@
 <%= form_for(@post, class: 'container form-horizontal') do |f| %>
 <%= render partial: 'shared/error_messages', object: @post, as: 'active_object' %>
-<% if @post.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-	<ul>
-		<% @post.errors.full_messages.each do |message| %>
-		<li>
-			<%= message %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<% end %>
-<!-- gul -->
-    
-
 <fieldset>
     <div class="row form-group">
         <%= f.label :title, class: 'col-lg-2 control-label' %>
@@ -26,15 +10,15 @@
     <div class="row form-group">
         <%= f.label :description, class: 'col-lg-2 control-label' %>
         <div class="col-lg-6">
-            <%= f.text_area :description, class: 'form-control' %>
+            <%= f.text_area :description, class: 'form-control', placeholder: 'Description here...' %>
         </div>
     </div>
 </fieldset>
 
 <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-        <%= f.submit "Update Post", :class => 'btn btn-primary' %>
-        <button type="reset" class="btn btn-default">Cancel</button>
+        <%= f.submit "Create Post", :class => 'btn btn-primary' %>
+        <button type="reset" onclick="clearInputField()" class="btn btn-default">Clear</button>
     </div>
 </div>
 <% end %>

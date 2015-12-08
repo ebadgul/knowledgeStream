@@ -1,16 +1,19 @@
 class Post < ActiveRecord::Base
+  
+  validates :title, :description, :presence => true
+  validates :title, :length => {:minimum => 5}
+  validates :description, :length => {:minimum => 10}
+  validates :title, :uniqueness => true
+  
 
+  searchable do
+    text :title, :description
+  end
     
       
   belongs_to :user
-  has_many :comments
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> comment-history
-  has_many :post_histories
+  has_many :comments, dependent: :destroy
+  has_many :post_histories, dependent: :destroy
 
 
   before_save :update_history
@@ -24,8 +27,4 @@ class Post < ActiveRecord::Base
     post_history.save
     end
   end
-<<<<<<< HEAD
->>>>>>> comment-history
-=======
->>>>>>> comment-history
 end

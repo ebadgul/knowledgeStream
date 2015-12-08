@@ -1,4 +1,13 @@
 <h2>Welcome to the KnowledgeStream</h2>
+<p>The following are multiple users posts, to create a post login or sign up and then create a post.</p>
+
+<% form_tag root_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <div class="jumbotron">
     <%= render 'posts/posts' %>
 </div>
@@ -6,7 +15,13 @@
 <%= link_to image_tag("rails.png", alt: "Rails logo"),
 'http://rubyonrails.org/' %>-->
 
+
+
+
 <div class="container">
     <legend>login and create a post your self</legend>
     <%= render 'posts/form' %>
 </div>
+
+
+

@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(post_params)
-      redirect_to user_profile_path(@user), notice: 'User was successfully updated.'
+      redirect_to edit_user_path(@user), notice: 'User was successfully updated.'
     else
       render 'edit'
     end
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
   private :secure_params
 
-  def post_params
+  def  post_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
   end
   
