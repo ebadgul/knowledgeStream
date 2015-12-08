@@ -1,33 +1,36 @@
 <div class="jumbotron">
 
-<p id="notice"><%= notice %></p>
+	<p id="notice">
+		<%= notice %>
+	</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.name %>
-</p>
+	<p>
+		<strong>User:</strong>
+		<%= @post.user.name %>
+	</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+	<p>
+		<strong>Title:</strong>
+		<%= @post.title %>
+	</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+	<p>
+		<strong>Description:</strong>
+		<%= @post.description %>
+	</p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @post.rating %>
-  <small><%= @post.created_at %></small>
-</p>
-<% if User == current_user %>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<% end %>
-<%= link_to 'Back', user_profile_path(@post.user) %>
+	<p>
+		<strong>Rating:</strong>
+		<%= @post.rating %>
+		<small><%= @post.created_at %></small>
+	</p>
+	<% if User == current_user %>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+	<% end %>
+	<%= link_to 'Back', user_profile_path(@post.user) %>
 </div>
-<%= render 'comments/comments'%>
+<div class="container">
+	<%= render 'comments/comments'%>
 	<%= render 'comments/form' %>
-	
-	
+</div>
+
