@@ -1,3 +1,4 @@
+<!--
 <ul class="nav nav-tabs">
 	<li class="active">
 		<a href="#home" data-toggle="tab" aria-expanded="true">Home</a>
@@ -5,7 +6,8 @@
 	<li class="">
 		<a href="#profile" data-toggle="tab" aria-expanded="false">Profile</a>
 	</li>
-</ul>
+</ul>-->
+
 <div id="myTabContent" class="tab-content">
 	<div class="tab-pane fade active in" id="home">
 		<table class ="table">
@@ -28,7 +30,7 @@
 					<td><%= post.rating %></td>
 					<td><%= link_to 'Show', post %></td>
 					<% if post.user == current_user %>
-					<td><%= link_to 'Edit', edit_post_path(post) %></td>
+					<td><%= link_to 'Edit', edit_post_path(post) %></td> 
 					<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 					<% end %>
 				</tr>
@@ -37,15 +39,17 @@
 
 		</table>
 	</div>
+	<!--
 	<div class="tab-pane fade" id="profile">
-		<p>
-			Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
-			Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan
-			four loko farm-to-table craft beer twee. Qui photo booth letterpress,
-			commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR.
-			Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
-		</p>
-	</div>
+			<p>
+				Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+				Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan
+				four loko farm-to-table craft beer twee. Qui photo booth letterpress,
+				commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR.
+				Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
+			</p>
+		</div>-->
+	
 </div>
 
 </div>
