@@ -5,8 +5,11 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> comment-history
   has_many :post_histories
 
 
@@ -21,5 +24,8 @@ class Post < ActiveRecord::Base
     post_history.save
     end
   end
+<<<<<<< HEAD
+>>>>>>> comment-history
+=======
 >>>>>>> comment-history
 end
