@@ -27,7 +27,7 @@
 					<td><%= post.user.name %></td>
 					<td><%= post.title %></td>
 					<td><%= post.description %></td>
-					<td><%= post.rating %></td>
+					<td><%= post.created_at.strftime("%d %b. %Y") %></td>
 					<td><%= link_to 'Show', post %></td>
 					<% if post.user == current_user %>
 					<td><%= link_to 'Edit', edit_post_path(post) %></td> 

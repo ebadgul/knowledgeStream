@@ -4,12 +4,6 @@ class Post < ActiveRecord::Base
   validates :title, :length => {:minimum => 5}
   validates :description, :length => {:minimum => 10}
   validates :title, :uniqueness => true
-  
-
-  searchable do
-    text :title, :description
-  end
-    
       
   belongs_to :user
   has_many :comments, dependent: :destroy
@@ -26,5 +20,9 @@ class Post < ActiveRecord::Base
     post_history.description = post.description
     post_history.save
     end
+  end
+  
+  def self.search(str_search)
+    Post.where('title LIKE :search OR description LIKE :search', search: "%#{str_search}%")
   end
 end
